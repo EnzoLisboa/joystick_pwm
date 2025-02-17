@@ -34,36 +34,38 @@ project(main C CXX ASM)
 pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
-
 add_executable(main 
-main.c
-inc/ssd1306.c)
+    main.c
+    inc/ssd1306.c
+)
 
 pico_set_program_name(main "main")
 pico_set_program_version(main "0.1")
 
-# Gera o cabeçalho PIO a partir do arquivo .pio
-pico_generate_pio_header(main)
+# Gera o cabeçalho PIO a partir do arquivo .pio (remova se não estiver usando PIO)
+# pico_generate_pio_header(main)
 
 # Modify the below lines to enable/disable output over UART/USB
-pico_enable_stdio_uart(main 0)
-pico_enable_stdio_usb(main 1)
+pico_enable_stdio_uart(main 0)  # Desabilita UART
+pico_enable_stdio_usb(main 1)   # Habilita USB para debug
 
 # Add the standard library to the build
 target_link_libraries(main
-        pico_stdlib)
+    pico_stdlib
+)
 
 # Add the standard include files to the build
 target_include_directories(main PRIVATE
-        ${CMAKE_CURRENT_LIST_DIR}
+    ${CMAKE_CURRENT_LIST_DIR}
+    ${CMAKE_CURRENT_LIST_DIR}/inc  # Inclui o diretório "inc" para o ssd1306.h
 )
 
 # Add any user requested libraries
 target_link_libraries(main 
-        hardware_i2c
-        hardware_pio
-        hardware_adc
-        )
+    hardware_i2c
+    hardware_pio
+    hardware_adc
+    hardware_pwm  
+)
 
 pico_add_extra_outputs(main)
-
