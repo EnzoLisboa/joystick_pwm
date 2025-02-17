@@ -73,7 +73,7 @@ O código está organizado da seguinte forma:
 
 1. Conecte o Raspberry Pi Pico W ao computador via USB.
 
-2. Coloque o Pico em modo de bootloader (segure o botão BOOTSEL enquanto conecta o USB).
+2. Coloque o Pico em modo  BOOTSEL.
 
 3. Copie o arquivo .uf2 gerado para o Pico.
 
@@ -89,4 +89,4 @@ O código está organizado da seguinte forma:
 
 ## Demonstração
 
-[Assista ao vídeo da demonstração]()
+[Assista ao vídeo da demonstração](https://drive.google.com/file/d/1Zj_bZBSUlkhtpCWlRMg555BlwiyPnVDc/view?usp=sharing)
